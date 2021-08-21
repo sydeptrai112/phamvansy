@@ -1,0 +1,89 @@
+﻿@model IEnumerable<ShopDoOnline.Models.SanPham>
+@helper Truncate(string s, int length)
+{
+    if (s.Length < length)
+    {
+        @s
+    }
+    else
+    {
+        @s.Substring(0, length) <text>...</text>
+    }
+
+
+}
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/AdminLayout.cshtml";
+}
+
+<table class="table" style="width:auto;">
+    <tr>
+        <th style="text-align:center;width:140px;">
+            Tên sản phẩm
+        </th>
+        <th style="text-align:center;width:200px;">
+            Mô tả
+        </th>
+        <th style="text-align:center;width:80px;">
+            Hình ảnh
+            @*@Html.DisplayNameFor(model => model.First().HinhAnh)*@
+        </th>
+        <th style="text-align:center;width:100px;">
+            Ngày cập nhật
+        </th>
+        <th style="text-align:center;width:80px;">
+            Số lượng tồn
+        </th>
+        <th style="text-align:center;width:80px;">
+            Đơn giá
+            @*@Html.DisplayNameFor(model => model.First().DonGia)*@
+        </th>
+        <th style="text-align:center;width:100px;">
+            Tên loại sản phẩm
+        </th>
+        <th style="text-align:center;width:100px;">
+            Tên nhà sản xuất
+        </th>
+
+
+        <th style="text-align:center;"></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Truncate(item.TenSP, 50)
+            </td>
+            <td style="overflow:hidden;">
+                @Html.Raw(Truncate(item.MoTa, 70).ToString())
+            </td>
+            <td>
+                <img src="~/HinhAnhDoAn/@item.HinhAnh" style="width:80px" />
+            </td>
+            <td>
+                @Html.FormatValue(item.NgayCapNhat, "{0:dd/MM/yyyy}")
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SoLuongTon)
+            </td>
+            <td>
+                @Html.FormatValue(item.DonGia, "{0:#,##0}")VNĐ
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LoaiSanPham.TenLoai)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NhaSanXuat.TenNSX)
+            </td>
+
+            <td>
+                <a href="@Url.Action("Edit",new { id = item.MaSP }) " class="btn btn-warning" role="button">Sửa</a>
+                <a href="@Url.Action("Details",new { id = item.MaSP }) " class="btn btn-primary" role="button">Chi tiết</a>
+                <a href="@Url.Action("Delete", new { id = item.MaSP }) " class="btn btn-danger" role="button">Xóa</a>
+            </td>
+        </tr>
+    }
+
+</table>

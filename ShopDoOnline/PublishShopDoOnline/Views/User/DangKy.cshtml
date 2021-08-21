@@ -1,0 +1,75 @@
+﻿@using ShopDoOnline.Models;
+@model ThanhVien
+
+@{
+    ViewBag.Title = "DangKy";
+    Layout = "~/Views/Shared/ProductLayout.cshtml";
+}
+
+<div class="DangKy">
+    <h4 style="color : red; text-align:center;">@ViewBag.ThongBao</h4>  
+    <div class=" register" style="margin-top:-50px;">
+        <div class="clearfix"></div>
+        <h1>Đăng ký thành viên</h1>
+        @using (Html.BeginForm("DangKy", "User"))
+        {
+           
+            @Html.ValidationSummary(true);
+            <div class="col-md-6 register-top-grid">
+                <h3>Thông tin cá nhân</h3>
+                <div>
+                    <span>Tài khoản</span>
+                    @Html.TextBox("TaiKhoan") @ViewData["err1"]
+                </div>
+                <div>
+                    <span>Họ tên</span>
+                    @Html.TextBox("HoTen") @ViewData["err2"]
+                </div>
+                <div>
+                    <span>Địa chỉ</span>
+                    @Html.TextBox("DiaChi") @ViewData["err3"]
+                </div>
+                <div>
+                    <span>Email</span>
+                    @Html.TextBox("Email") @ViewData["err4"]
+                </div>
+
+            </div>
+            <div class="col-md-6 register-bottom-grid register-top-grid">
+                <h3>Thông tin đăng nhập</h3>
+                <div>
+                    <span>Điện thoại</span>
+                    @Html.TextBox("SoDienThoai") @ViewData["err5"]
+                </div>
+                <div>
+                    <span>Mật khẩu</span>
+                    @Html.Password("MatKhau") @ViewData["err6"]
+                </div>
+                <div>
+                    <span>Nhập lại mật khẩu</span>
+                    @Html.Password("MatKhauNL") @ViewData["err7"]
+                </div>
+                <div>
+                    <span>Câu hỏi bí mật</span>
+                    @Html.DropDownList("CauHoi")
+                </div>
+                <div>
+                    <span>Câu trả lời</span>
+                    @Html.TextBox("CauTraLoi") @ViewData["err8"]
+                </div>
+
+                <input type="submit" value="Xác nhận">
+
+            </div>
+            <div class="clearfix"> </div>
+        }
+
+        
+    </div>
+    
+</div>
+@*<h1 style="color: red;">@ViewBag.ThongBao</h1>*@
+
+
+
+

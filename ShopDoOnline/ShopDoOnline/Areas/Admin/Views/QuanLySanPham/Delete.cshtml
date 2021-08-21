@@ -1,0 +1,108 @@
+﻿@model ShopDoOnline.Models.SanPham
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/AdminLayout.cshtml";
+}
+
+<style type="text/css">
+    img {
+        width: 200px;
+        margin-bottom: 20px;
+    }
+
+    h3, h4 {
+        color: red;
+        font-weight: bold;
+    }
+</style>
+
+
+<h2>XÁC NHẬN THÔNG TIN CẦN XÓA</h2>
+
+<h3>BẠN CÓ MUỐN XÓA SẢN PHẨM NÀY?</h3>
+<h4>@Html.Raw(ViewBag.ThongBao)</h4>
+
+
+
+<div>
+
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Tên sản phẩm :
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenSP)
+        </dd>
+
+        <dt>
+            Mô tả :
+        </dt>
+
+        <dd>
+            @Html.Raw(Model.MoTa.ToString().Replace("\n", "</p><p>"))
+        </dd>
+
+        <dt>
+            Hình Ảnh :
+        </dt>
+
+        <dd>
+            <img src="~/HinhAnhDoAn/@Model.HinhAnh" alt="@Model.TenSP">
+        </dd>
+
+        <dt>
+            Ngày cập nhật :
+        </dt>
+
+        <dd>
+            @Html.FormatValue(Model.NgayCapNhat, "{0:dd/MM/yyyy}")
+        </dd>
+
+        <dt>
+            Số lượng tồn :
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SoLuongTon)
+        </dd>
+
+        <dt>
+            Giá bán:
+        </dt>
+
+        <dd>
+            @Html.FormatValue(Model.DonGia, "{0:#,##0}") VNĐ
+        </dd>
+
+        <dt>
+            Loại sản phẩm :
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LoaiSanPham.TenLoai)
+        </dd>
+
+        <dt>
+            Nhà sản xuất :
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NhaSanXuat.TenNSX)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Xóa" class="btn btn-default" /> |
+            @Html.ActionLink("VỀ TRANG QUẢN LÝ SẢN PHẨM ", "Index")
+        </div>
+    }
+</div>
+

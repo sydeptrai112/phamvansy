@@ -1,0 +1,70 @@
+﻿@using ShopDoOnline.Models;
+@using PagedList.Mvc;
+@model PagedList.PagedList<ShopDoOnline.Models.KhachHang>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/AdminLayout.cshtml";
+}
+
+<h2>QUẢN LÝ KHÁCH HÀNG</h2>
+<table class="table">
+    <tr>
+        <th>
+            Mã Khách Hàng
+        </th>
+        <th>
+            Tên Khách Hàng
+        </th>
+        <th>
+            Địa Chỉ
+        </th>
+        <th>
+            Email
+        </th>
+        <th>
+            Số Điện Thoại
+        </th>
+        <th>
+            Mã Thành Viên
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaKH)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenKH)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DiaChi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SoDienThoai)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaThanhVien)
+            </td>
+           
+        </tr>
+    }
+
+</table>
+<p style="text-align:center;"> Trang @(Model.PageCount<Model.PageNumber?0:Model.PageNumber) / @Model.PageCount</p>
+<div class="MenuTrang">
+    @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page }))
+</div>
+<style>
+    .MenuTrang {
+        display: inline;
+        text-align: center;
+    }
+</style>
+

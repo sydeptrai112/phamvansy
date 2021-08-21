@@ -1,0 +1,77 @@
+﻿@model IEnumerable<ShopDoOnline.Models.ThanhVien>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/AdminLayout.cshtml";
+}
+
+<h2>QUẢN LÝ THÀNH VIÊN</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            Mã thành viên
+        </th>
+        <th>
+            Tài Khoản
+        </th>
+        <th>
+            Mật Khẩu
+        </th>
+        <th>
+            Họ Tên
+        </th>
+        <th>
+            Địa Chỉ
+        </th>
+        <th>
+            Email
+        </th>
+        <th>
+            Số điện thoại
+        </th>
+
+        <th>
+            Ưu đãi
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.MaThanhVien)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.TaiKhoan)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.MatKhau)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.HoTen)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.DiaChi)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Email)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.SoDienThoai)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.LoaiThanhVien.UuDai)
+    </td>
+    <td>
+       @* <a href="@Url.Action("Edit",new { id = item.MaThanhVien }) " class="btn btn-warning" role="button">Sửa</a>
+       
+        <a href="@Url.Action("Delete", new { id = item.MaThanhVien }) " class="btn btn-danger" role="button">Xóa</a>*@
+    </td>
+
+</tr>
+    }
+
+</table>

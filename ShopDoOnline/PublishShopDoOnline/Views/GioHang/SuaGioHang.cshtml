@@ -1,0 +1,61 @@
+﻿@using ShopDoOnline.Models;
+@model ItemGioHang
+
+
+
+@{
+    ViewBag.Title = "SuaGioHang";
+    Layout = "~/Views/Shared/ProductLayout.cshtml";
+}
+
+@{ 
+    List<ItemGioHang> lstGioHang = ViewBag.GioHang as List<ItemGioHang>;
+}
+
+
+<table class="table">
+    <tr>
+        <td>Mã SP</td>
+        <td>Tên SP</td>
+        <td>Hình ảnh</td>
+        <td>Số lượng</td>
+        <td>Đơn giá</td>
+        <td>Thành Tiền</td>
+        <td></td>
+    </tr>
+    @foreach (var item in lstGioHang)
+    {
+        // Sản phẩm có mã sản phẩm được chỉnh sửa gởi từ tham số bên trang xem giỏ hàng
+        if (Model.MaSP == item.MaSP)
+        {
+
+            using (Html.BeginForm("CapNhatGioHang", "GioHang"))
+            {
+                <tr>
+                    <td>@item.MaSP @Html.Hidden("MaSP",item.MaSP)</td>
+                    <td>@item.TenSP</td>
+                    <td><img src="@Url.Content("~/HinhAnhDoAn/" + item.HinhAnh)" width="50" height="50" /></td>
+                    <td>@Html.TextBox("SoLuong", item.SoLuong)</td>
+                    <td>@item.DonGia.ToString("#,##") VNĐ</td>
+                    <td>@item.ThanhTien.ToString("#,##") VNĐ</td>
+                    <td><input type="submit" value="Cập nhật" /></td>
+
+                </tr>
+            }
+        }
+        @*else
+        {
+            <tr>
+                <td>@item.MaSP</td>
+                <td>@item.TenSP</td>
+                <td><img src="@Url.Content("~/Content/HinhAnhDoAn/"+item.HinhAnh)" width="50" height="50" /></td>
+                <td>@item.SoLuong</td>
+                <td>@item.DonGia.ToString("#,##") VNĐ</td>
+                <td>@item.ThanhTien.ToString("#,##") VNĐ</td>
+                <td>@Html.ActionLink("Sửa", "SuaGioHang", new { @MaSP = item.MaSP })</td>
+            </tr>
+        }*@
+    }
+</table>
+
+

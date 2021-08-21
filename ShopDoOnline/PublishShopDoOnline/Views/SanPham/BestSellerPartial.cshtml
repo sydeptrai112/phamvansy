@@ -1,0 +1,36 @@
+﻿@using ShopDoOnline.Models;
+@model IEnumerable<SanPham>
+
+
+<div class="product-bottom">
+    <div class="of-left-in">
+        <h3 class="best">Best Sellers</h3>
+    </div>
+    
+    <div class="product-go">
+        @foreach (var item in Model.Take(2))
+        {
+            <div class=" fashion-grid">
+                <a href="#"><img class="img-responsive " src="@Url.Content("~/HinhAnhDoAn/" + @item.HinhAnh)" alt=""></a>
+
+            </div>
+            <div class=" fashion-grid1">
+                <h6 class="best2">
+                    <a href="#">
+                        @item.MoTa
+                    </a>
+                </h6>
+
+                <span class=" price-in1"> @item.DonGia</span>
+            </div>
+
+            <div class="clearfix"> </div>
+        }
+        </div>
+        
+
+
+
+
+</div>
+

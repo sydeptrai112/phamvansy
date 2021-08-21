@@ -1,0 +1,14 @@
+﻿@using ShopDoOnline.Models;
+@model List<ThanhVien>
+@{
+    ViewBag.Title = "GroupDuLieu";
+}
+
+@foreach(var Group in Model.GroupBy(n=> n.LoaiThanhVien))
+{ 
+    <div>@Group.Key.TenLoai</div>
+    foreach(var item in Group) { 
+        <p>@item.TaiKhoan</p>
+    }
+}
+

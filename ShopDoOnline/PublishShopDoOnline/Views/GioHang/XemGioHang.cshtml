@@ -1,0 +1,428 @@
+﻿@using ShopDoOnline.Models;
+@*@model List<ItemGioHang>*@
+
+<link href="https://fonts.googleapis.com/css?family=BenchNine:700" rel="stylesheet" type="text/css">
+
+
+@{
+    ViewBag.Title = "XemGioHang";
+    Layout = "~/Views/Shared/ProductLayout.cshtml";
+}
+<div class="col-md-3 product-price">
+
+    <div class=" rsidebar span_1_of_left">
+        <div class="of-left">
+            <h3 class="cate">Loại Sản Phẩm</h3>
+        </div>
+        <ul class="menu">
+            <li class="item1">
+                <a href="#">Tee </a>
+                <ul class="cute">
+                    <li class="subitem1"><a href="#">T-Shirt </a></li>
+                    <li class="subitem2"><a href="#">Polo </a></li>
+                    <li class="subitem3"><a href="#">Sơ mi </a></li>
+                </ul>
+            </li>
+            <li class="item2">
+                <a href="#">Jacket </a>
+                <ul class="cute">
+                    <li class="subitem1"><a href="#">Hoodie </a></li>
+                    <li class="subitem2"><a href="#">Varsity Jacket </a></li>
+                    <li class="subitem3"><a href="#">Bomber Jacket</a></li>
+                </ul>
+            </li>
+            <li class="item3">
+                <a href="#">Phụ kiện</a>
+                <ul class="cute">
+                    <li class="subitem1"><a href="#">Dây chuyền </a></li>
+                    <li class="subitem2"><a href="#">Vòng tay </a></li>
+                    <li class="subitem3"><a href="#">Nhẫn</a></li>
+                </ul>
+            </li>
+            <li class="item4">
+                <a href="#">Vintage Style</a>
+                <ul class="cute">
+                    <li class="subitem1"><a href="#">Nón len </a></li>
+                    <li class="subitem2"><a href="#">Sơ mi nhung </a></li>
+                    <li class="subitem3"><a href="#">Flannel</a></li>
+                </ul>
+            </li>
+
+            <li class="item4">
+                <a href="#">Giày</a>
+                <ul class="cute">
+                    <li class="subitem1"><a href="#">Boost </a></li>
+                    <li class="subitem2"><a href="#">Sneaker</a></li>
+                    <li class="subitem3"><a href="product.html">Giày lười </a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <!--initiate accordion-->
+    <script type="text/javascript">
+        $(function () {
+            var menu_ul = $('.menu > li > ul'),
+                menu_a = $('.menu > li > a');
+            menu_ul.hide();
+            menu_a.click(function (e) {
+                e.preventDefault();
+                if (!$(this).hasClass('active')) {
+                    menu_a.removeClass('active');
+                    menu_ul.filter(':visible').slideUp('normal');
+                    $(this).addClass('active').next().stop(true, true).slideDown('normal');
+                } else {
+                    $(this).removeClass('active');
+                    $(this).next().stop(true, true).slideUp('normal');
+                }
+            });
+
+        });
+    </script>
+    <!---->
+    <div class="product-middle">
+
+        <div class="fit-top">
+            <h6 class="shop-top">Lorem Ipsum</h6>
+            <a href="#" class="shop-now">SHOP NOW</a>
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+    <div class="sellers">
+        <div class="of-left-in">
+            <h3 class="tag">Tags</h3>
+        </div>
+        <div class="tags">
+            <ul>
+                <li><a href="#">design</a></li>
+                <li><a href="#">fashion</a></li>
+                <li><a href="#">lorem</a></li>
+                <li><a href="#">dress</a></li>
+                <li><a href="#">fashion</a></li>
+                <li><a href="#">dress</a></li>
+                <li><a href="#">design</a></li>
+                <li><a href="#">dress</a></li>
+                <li><a href="#">design</a></li>
+                <li><a href="#">fashion</a></li>
+                <li><a href="#">lorem</a></li>
+                <li><a href="#">dress</a></li>
+
+
+            </ul>
+            <div class="clearfix"> </div>
+
+        </div>
+
+    </div>
+
+
+    @*@Html.Action("BestSellerPartial", "SanPham")*@
+    <!---->
+    <div class="product-bottom">
+        <div class="of-left-in">
+            <h3 class="best">Best Sellers</h3>
+        </div>
+
+        <div class="product-go">
+            <div class=" fashion-grid">
+                <a href="#"><img class="img-responsive " src="~/HinhAnhDoAn/H1.jpg" alt=""></a>
+
+            </div>
+            <div class=" fashion-grid1">
+                <h6 class="best2">
+                    <a href="#">
+                        Chất liệu vải dày thoáng mát
+                    </a>
+                </h6>
+
+                <span class=" price-in1"> 100,000</span>
+            </div>
+
+            <div class="clearfix"> </div>
+        </div>
+        <div class="product-go">
+            <div class=" fashion-grid">
+                <a href="#"><img class="img-responsive " src="~/HinhAnhDoAn/H2.jpg" alt=""></a>
+
+            </div>
+            <div class=" fashion-grid1">
+                <h6 class="best2">
+                    <a href="#">
+                        Chất liệu vải dày thoáng mát
+                    </a>
+                </h6>
+
+                <span class=" price-in1"> 200,000</span>
+            </div>
+
+            <div class="clearfix"> </div>
+        </div>
+
+
+
+        @*<div class="product-go">
+                <div class=" fashion-grid">
+                    <a href="#"><img class="img-responsive " src="images/p2.jpg" alt=""></a>
+
+                </div>
+                <div class="fashion-grid1">
+                    <h6 class="best2">
+                        <a href="#">
+                            Lorem ipsum dolor sit
+                            amet consectetuer
+                        </a>
+                    </h6>
+
+                    <span class=" price-in1"> $40.00</span>
+                </div>
+
+                <div class="clearfix"> </div>
+            </div>*@
+
+    </div>
+
+</div>
+
+
+<div class="col-md-9 product1">
+
+
+    @if (Model == null || Model.Count == 0)
+    {
+
+
+        <h1 style="text-align:center;color:red;"> Giỏ hàng rỗng!!!! </h1>
+    }
+    else
+    {
+
+
+
+        <table class="table" @*border="2px solid;"*@ @* style="margin-top:20px;*@>
+            <tr style=" font-size:15px;font-weight:bold;text-align: center; ">
+                <td>Mã SP</td>
+                <td>Tên SP</td>
+                <td>Hình ảnh</td>
+                <td>Số lượng</td>
+                <td>Đơn giá</td>
+                <td>Thành Tiền</td>
+                <td></td>
+                <td></td>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.MaSP</td>
+                    <td>@item.TenSP</td>
+                    <td><img src="@Url.Content("~/HinhAnhDoAn/" + item.HinhAnh)" width="50" height="50" /></td>
+                    @*<td>@item.SoLuong</td>
+                        <td>@item.DonGia.ToString("#,##") VNĐ</td>
+                        <td>@item.ThanhTien.ToString("#,##") VNĐ</td>
+                        <td>@Html.ActionLink("Xóa", "XoaSPKhoiGioHang", new { @MaSP = item.MaSP }) </td>
+                        <td>@Html.ActionLink("Sửa", "SuaGioHang", new { @MaSP = item.MaSP })</td>*@
+                    @using (Html.BeginForm("CapNhatGioHang", "GioHang", new { @MaSP = item.MaSP }))
+                    {
+                        <td align="center">
+                            <input type="number" min="1" name="txtSoLuong" value="@item.SoLuong" style="background-color:#fff;" />
+
+                        </td>
+
+
+
+                        <td align="center">@string.Format("{0:#,##0,0}", @item.DonGia) </td>
+                        <td align="center">@string.Format("{0:#,##0,0}", @item.ThanhTien) </td>
+                        @*<td><a href="@Url.Action("ChiTietSach","SachOnline",new { @MaSP = item.MaSP })">Chi tiết</a></td>*@
+                        <td>@Html.ActionLink("Xóa", "XoaSPKhoiGioHang", new { @MaSP = item.MaSP }) </td>
+
+                        <td>
+                            @* <input type="submit" value="Cập nhật" />*@
+                            <button class="snip1582 " style="padding:1px 6px; font-size: inherit; margin:3px; font-family:Arial;">Cập nhật</button>
+                        </td>
+                    }
+                </tr>
+
+            }
+            @*<tr>
+                    <td colspan="4" style="text-align : right; color:red;font-weight:bold;padding-right:5px;">
+                        Tổng số lượng : @string.Format("{0:#,##0}", ViewBag.TongSoLuong)
+                    </td>
+                    <td colspan="5" style="text-align : right; color:red;font-weight:bold;">
+                        Tổng tiền : @string.Format("{0:#,##0}", ViewBag.TongTien)
+                    </td>
+
+                </tr>*@
+            @*<tr style="font-weight:bold;color:blue;text-align:right; font-size:15pt;">
+                    <td colspan="9">
+                        @Html.ActionLink("Xóa giỏ hàng", "XoaGioHang")
+
+                    </td>
+
+                </tr>*@
+        </table>
+
+
+        using (Html.BeginForm("DatHang", "GioHang"))
+        {
+            if (Session["TaiKhoan"] == null)
+            {
+                <div class="ThongTinMuaHang">
+                    <table align="center" class="table">
+                        <tr>
+                            <td align="center" colspan="2"><b>Thông tin khách hàng</b></td>
+                        </tr>
+                        <tr>
+                            <td>Họ tên</td>
+                            <td>
+                                @Html.TextBox("TenKH")
+                                <p style="color:red" id="TB_TenKH"></p>
+
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Địa chỉ</td>
+                            <td>
+                                @Html.TextArea("DiaChi")
+                                <p style="color:red" id="TB_DiaChi"></p>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Email</td>
+                            <td>
+                                @Html.TextBox("Email")
+                                <p style="color:red" id="TB_Email"></p>
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <td>Điện thoại</td>
+                            <td>
+                                @Html.TextBox("SoDienThoai")
+                                <p style="color:red" id="TB_SDT"></p>
+                            </td>
+
+                        </tr>
+                    </table>
+
+                </div>
+
+            }
+            <div class="divDatHang" style="text-align:right;">
+                <input type="submit" value="Đặt hàng" class="btn btn-danger" id="btnDatHang" />
+                @*@Html.ActionLink("Mua tiếp", "Index", "Home", new { @class = "btn btn-success" })*@
+            </div>
+        }
+    }
+
+
+
+
+
+
+    
+</div>
+
+
+
+<script>
+    $("#btnDatHang").click(function () {
+        var loi = 0;
+        if ($("#TenKH").val() == "") {
+            $("#TB_TenKH").text("Tên không được bỏ trống!!");
+            loi++;
+        }
+        else {
+            $("#TB_TenKH").text("");
+        }
+        if ($("#DiaChi").val() == "") {
+            $("#TB_DiaChi").text("Địa chỉ không được bỏ trống!!");
+            loi++;
+        }
+        else {
+            $("#TB_DiaChi").text("");
+        }
+        if ($("#Email").val() == "") {
+            $("#TB_Email").text("Email không được bỏ trống!!");
+            loi++;
+        }
+        else {
+            $("#TB_Email").text("");
+        }
+        if ($("#SoDienThoai").val() == "") {
+            $("#TB_SDT").text("Điện thoại không được bỏ trống!!");
+            loi++;
+        }
+        else {
+            $("#TB_SDT").text("");
+        }
+        if (loi != 0) {
+            return false;
+        }
+
+    });
+
+
+</script>
+<style>
+
+    .snip1582 {
+        background-color: #EF5F21;
+        border: none;
+        color: #ffffff;
+        cursor: pointer;
+        display: inline-block;
+        font-family: 'BenchNine', Arial, sans-serif;
+        font-size: 1em;
+        font-size: 22px;
+        line-height: 1em;
+        margin: 15px 40px;
+        outline: none;
+        padding: 12px 30px 10px;
+        position: relative;
+        text-transform: uppercase;
+        font-weight: 700;
+    }
+
+        .snip1582:before,
+        .snip1582:after {
+            border-color: transparent;
+            -webkit-transition: all 0.25s;
+            transition: all 0.25s;
+            border-style: solid;
+            border-width: 0;
+            content: "";
+            height: 24px;
+            position: absolute;
+            width: 24px;
+        }
+
+        .snip1582:before {
+            border-color: #c47135;
+            border-top-width: 2px;
+            left: 0px;
+            top: -5px;
+        }
+
+        .snip1582:after {
+            border-bottom-width: 2px;
+            border-color: #c47135;
+            bottom: -5px;
+            right: 0px;
+        }
+
+        .snip1582:hover,
+        .snip1582.hover {
+            background-color: #c47135;
+        }
+
+            .snip1582:hover:before,
+            .snip1582.hover:before,
+            .snip1582:hover:after,
+            .snip1582.hover:after {
+                height: 100%;
+                width: 100%;
+            }
+</style>
+
+
+

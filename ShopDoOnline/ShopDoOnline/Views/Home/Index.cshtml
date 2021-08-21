@@ -1,0 +1,51 @@
+﻿@using ShopDoOnline.Models;
+@model IEnumerable<SanPham>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+@{ 
+    IEnumerable<SanPham> lstNew = (IEnumerable<SanPham>)ViewBag.ListNew;
+    IEnumerable<SanPham> lstNew1 = (IEnumerable<SanPham>)ViewBag.ListNew1;
+    IEnumerable<SanPham> lstNew2 = (IEnumerable<SanPham>)ViewBag.ListNew2;
+
+
+}
+
+@*Bước 1 : tách code và lồng vào partialview*@
+<div class="content-top">
+
+    <h1>NEW T-SHIRT</h1>
+    <div class="grid-in">
+        <div class="container">
+            @Html.Partial("~/Views/SanPham/SanPhamStyle1Partial.cshtml", lstNew)
+        </div>
+
+    </div>
+
+    @*<h1>NEW T-SHIRT</h1>
+        <div class="grid-in">
+            <div class="container">
+                @Html.Partial("~/Views/SanPham/SanPhamStyle2Partial.cshtml", lstNew1)
+            </div>
+
+        </div>*@
+
+    <br />
+    <hr />
+
+    <h1>NEW HOODIE</h1>
+    <div class="grid-in">
+        <div class="container">
+            @Html.Partial("~/Views/SanPham/SanPhamStyle1Partial.cshtml", lstNew1)
+        </div>
+
+    </div>
+
+    <br />
+    <hr />
+
+    
+</div>
+
